@@ -13,3 +13,7 @@ RUN mv ${generator}* ${generator}
 
 RUN chmod 744 ${generator}/generate-groups.sh
 WORKDIR ${generator}
+
+RUN cd ${generator} && go get k8s.io/client-go@kubernetes-1.16.0; exit 0
+RUN cd ${generator} && go get k8s.io/api@kubernetes-1.16.0; exit 0
+RUN cd ${generator} && go get k8s.io/apimachinery@kubernetes-1.16.0; exit 0
